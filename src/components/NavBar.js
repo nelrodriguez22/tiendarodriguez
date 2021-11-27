@@ -1,8 +1,10 @@
 import React from 'react'
+import  {CartWidget}  from "./CartWidget";
 
 export const NavBar = () => {
 	return (
-<nav className="navbar navbar-expand-lg navbar-light bg-light">
+		<>
+				<nav className="navbar navbar-expand-lg navbar-light bg-light">
 				<div className="container-fluid">
 					<a	className="navbar-brand" href="#"	>
 						T-Shirts Commerce
@@ -19,11 +21,21 @@ export const NavBar = () => {
 							</li>
 							<li className="nav-item">
 								<a	className="nav-link"  href="#"	>
-									Search
+									Categoria 1
+								</a>
+							</li>
+									<li className="nav-item">
+								<a	className="nav-link"  href="#"	>
+									Categoria 2
+								</a>
+							</li>
+									<li className="nav-item">
+								<a	className="nav-link"  href="#"	>
+									Categoria 3
 								</a>
 							</li>
 						</ul>
-						<span className="nav-item nav-link text-info">Cart</span>
+						<CartWidget />
 						<button
 							className="btn btn-secondary"
 						>
@@ -32,5 +44,6 @@ export const NavBar = () => {
 					</div>
 				</div>
 			</nav>
+			</>
 	)
 }
