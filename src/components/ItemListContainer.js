@@ -1,26 +1,45 @@
-import { useState, useEffect } from "react"
-import {ItemCount} from "./ItemCount"
-import {ItemList} from "./ItemList"
-import {dbMock} from "../assets/dbMock"
+import { useEffect, useState } from "react";
+import { ItemList } from "./ItemList";
+import { useParams } from "react-router-dom";
+import {
+  getItems,
+  getTshirtsTypes1,
+  getTshirtsTypes2,
+} from "../assets/ApiCalls";
+
+export const ItemListContainer = () => {
+  const { id } = useParams();
+  const [items, setItems] = useState([]);
 
 
-export const ItemListContainer = (props) => {
-const [items, setItems] = useState([]);
-useEffect(() => {
-    new Promise(() => {
-      setTimeout(() => {
-        setItems(dbMock);
-      }, 2000);
-    });
-  }, []);
+  useEffect(() => {
+    if (!id) {
+      setItems([]);
+      getItems().then((data) => {
+        setTimeout(() => {
+          setItems(data);
+        }, 2000);
+      });
+    } else if (id === "men-clothing") {
+      setItems([]);
+      getTshirtsTypes1().then((data) => {
+        setTimeout(() => {
+          setItems(data);
+        }, 2000);
+      });
+    } else {
+      setItems([]);
+      getTshirtsTypes2().then((data) => {
+        setTimeout(() => {
+          setItems(data);
+        }, 2000);
+      });
+    }
+  }, [id]);
 
-
-return (
-		<>
-			<h2 style={{color: "red"}}>Hola,{props.greeting} </h2>
-			<ItemCount stock={10} initial={1}/>
-			<ItemList items={items}/>
-		</>
-	)
-}
-
+  return (
+    <div className="container mt-4">
+        <ItemList items={items} />
+    </div>
+  );
+};

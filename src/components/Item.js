@@ -1,17 +1,23 @@
-export const Item = ({items}) => {
+import { NavLink } from "react-router-dom";
+import '../App.css';
+
+export const Item = ({item}) => {
 	return (
-		//id, title,price, pictureUrl
 		<>	
 		
 			<div className="card col-4 mt-3">
 				<div className="row card-header">
-					#{items.id} Nombre:{items.title}
+					#{item.id} Nombre:{item.title}
 				</div>
-				<img src={items.pictureUrl} alt="..." />
-				<button className="btn btn-outline-primary">Ver Mas</button>
+				<center><img src={item.image} alt="..." /></center>
+			
+				
 				<div className="text-center">
-					Precio:${items.price}
+					Precio:${item.price}
 				</div>
+					<NavLink className="ct" to={`/item/${item.id}`} >
+				Ver Mas
+				</NavLink>
 			</div>
 		
 
