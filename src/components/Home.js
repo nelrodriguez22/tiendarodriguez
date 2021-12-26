@@ -9,7 +9,7 @@ const Home = () => {
 		<Routes>
 			<Route exact path="/category/:id" element={<ItemListContainer />} />
 			<Route exact path="/item/:id" element={<ItemDetailContainer />} />
-			<Route path="/Cart" element={<Cart />} />
+			<Route path="/cart" element={<Cart />} />
 			<Route path="/" element={<ItemListContainer />} />
       </Routes>
 		</>

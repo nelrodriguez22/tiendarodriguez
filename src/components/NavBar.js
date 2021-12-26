@@ -1,8 +1,12 @@
-import React from 'react'
-import  {CartWidget}  from "./CartWidget";
-import {NavLink } from "react-router-dom";
+import React, { useContext } from 'react'
+import  {CartWidget}  from "./CartWidget"
+import {NavLink } from "react-router-dom"
+import { CartContext } from "../cartcontext/CartContext"
+
 
 export const NavBar = () => {
+	const { cartState } = useContext(CartContext)
+	const totalProd = cartState.totalprod
 	return (
 		<>
 				<nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,7 +37,8 @@ export const NavBar = () => {
 					
 							
 						</ul>
-						<CartWidget />
+						{totalProd > 0 ? <CartWidget /> : null}
+						
 						<button
 							className="btn btn-secondary"
 						>

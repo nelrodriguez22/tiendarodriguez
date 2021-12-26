@@ -3,4 +3,8 @@ export const types={
 	rmvprod: 'removeproduct',
 	clear: 'clear',
 	isInCart: 'isincart',
+	accaddprod:'accaddprod',
+	accrmvprod:'accrmvprod',
+	accaddprice:'accaddprice',
+	accrmvprice:'accrmvprice'
 }

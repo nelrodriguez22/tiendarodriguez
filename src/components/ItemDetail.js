@@ -11,6 +11,7 @@ export const ItemDetail = ({ item }) => {
 	const navigate = useNavigate()
 	const [ product, setProduct ] = useState(0)
 	const { cartState, dispatch } = useContext(CartContext)
+	const [ itemCount, setItemCount ] = useState(0);
 
 	const isInCart = (id, counter) => {
 		const product = cartState.productos.find(product => product.id === id)
@@ -22,26 +23,48 @@ export const ItemDetail = ({ item }) => {
 					quantity: counter
 				}
 			})
+			dispatch({
+				type: types.accaddprod,
+				payload: {
+					totalprod: counter
+				}
+			})
+			dispatch({
+				type: types.totalprice,
+				payload: counter * item.price
+			})
 		} else {
 			dispatch({
 				type: types.addprod,
 				payload: {
 					id: item.id,
+					imageUrl:item.image,
 					stock: item.rating.count,
 					name: item.title,
 					price: item.price,
 					description: item.description,
-					quantity: counter
+					quantity:counter
 				}
 			})
-		}
+			dispatch({
+				type: types.accaddprod,
+				payload: {
+					totalprod:counter
+				}
+		})
+			dispatch({
+				type: types.accaddprice,
+				payload: counter * item.price
+			})
 	}
-
+	}
+	
 	const onAdd = (counter) => {
 		setProduct(product + counter)
 		isInCart(item.id, counter)
+		setItemCount(counter)
+		
 	}
-
 //TODO agregar el feedback al usuario de todas las acciones(swal o toasty)
 
 
@@ -55,26 +78,29 @@ export const ItemDetail = ({ item }) => {
 					Regresar
 				</button>
 			</div>
-			<div className="card col-4 mt-3 ">
+			<div className="card col-6 mt-3 ">
 				<div className="d-flex justify-content-center">
 					<img className="" src={item.image} alt="..." />
-					<div className="d-flex align-items-center">
+					<div>	
 						<ItemCount
 							onEvent={onAdd}
 							stock={item.rating?.count}
 							initial={0}
 							{...item}
 						/>
+						{itemCount > 0 
+						? (
+							<Link to="/cart" className="btn btn-primary">
+								Terminar Compra
+							</Link>
+						) 
+						: null
+						}
 					</div>
 				</div>
 				<p>{item.description}</p>
 				<div className="text-center fs-3">Precio:${item.price}</div>
-				<Link
-					to="/cart"
-					className="btn btn-primary"
-				>
-					Terminar Compra
-				</Link>
+				
 			</div>
 		</div>
 	)

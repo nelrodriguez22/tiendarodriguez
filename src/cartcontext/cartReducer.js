@@ -2,7 +2,9 @@ import { types } from "../types/types";
 
 
 export const initialState = {
-	productos: []
+	productos: [],
+	totalprod: 0,
+	totalprice: 0
 }
 
 
@@ -16,28 +18,53 @@ export const cartReducer = (state = initialState, action) => {
 		case types.rmvprod:
 			return {
 				...state,
-				productos: state.productos.filter(productos => productos.id !== action.payload)
+				productos: [ ...state.productos.filter(productos => productos.id !== action.payload) ]
 			}
 		case types.clear:
 			return {
 				...state,
 				productos: []
 			}
+			
 		case types.isInCart:
 			return {
 				...state,
-				productos: state.productos.map(producto => {
-					if (producto.id === action.payload.id) {
+				productos: state.productos.map(productos => {
+					if (productos.id === action.payload.id) {
 						return {
-							...producto,
-							quantity: producto.quantity + action.payload.quantity
+							...productos,
+							quantity: productos.quantity + action.payload.quantity
 						}
+					} else {
+						return productos
 					}
-					return producto
-				}
-				)
+				})
+			}
+
+		case types.accaddprod:
+			return {
+				...state,
+				totalprod: state.totalprod + Number(action.payload.totalprod)
+			}
+		case types.accaddprice:
+			return {
+				...state,
+				totalprice: state.totalprice + action.payload
+			}
+			case types.accrmvprod:
+			return {
+				...state,
+				totalprod: state.totalprod - action.payload.totalprod
+			}
+		case types.accrmvprice:
+			return {
+				...state,
+				totalprice: state.totalprice - action.payload.totalprice
 			}
 		default:
 			return state;
 	}
 }
+
+
+
