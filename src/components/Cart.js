@@ -4,7 +4,7 @@ import { CartContext } from "../cartcontext/CartContext"
 import { Link } from "react-router-dom"
 
 export const Cart = () => {
-	  const { cartState } = useContext(CartContext)
+	const { cartState } = useContext(CartContext)
 	const productos = cartState.productos
 			
 	
@@ -71,6 +71,6 @@ export const Cart = () => {
 				</div>
 			</div>
 		</>
-	 );
+	 )
 }
  

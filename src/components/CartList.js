@@ -3,10 +3,10 @@ import {useContext} from "react"
 import {CartContext} from "../cartcontext/CartContext"
 import { types } from "../types/types"
 
-import '../App.css';
+import '../App.css'
 
 const CartList = ({...producto}) => {
-	const {  dispatch } = useContext(CartContext)
+const {  dispatch } = useContext(CartContext)
 
 
   const handleRemove = (id) => {
@@ -56,7 +56,7 @@ const CartList = ({...producto}) => {
 				</td>
 			</tr>
 		</tbody>
-	 );
+	 )
 }
  
-export default CartList;
+export default CartList

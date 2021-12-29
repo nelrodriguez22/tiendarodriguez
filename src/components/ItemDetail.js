@@ -11,7 +11,7 @@ export const ItemDetail = ({ item }) => {
 	const navigate = useNavigate()
 	const [ product, setProduct ] = useState(0)
 	const { cartState, dispatch } = useContext(CartContext)
-	const [ itemCount, setItemCount ] = useState(0);
+	const [ itemCount, setItemCount ] = useState(0)
 
 	const isInCart = (id, counter) => {
 		const product = cartState.productos.find(product => product.id === id)
@@ -30,7 +30,7 @@ export const ItemDetail = ({ item }) => {
 				}
 			})
 			dispatch({
-				type: types.totalprice,
+				type: types.accaddprice,
 				payload: counter * item.price
 			})
 		} else {
@@ -39,7 +39,7 @@ export const ItemDetail = ({ item }) => {
 				payload: {
 					id: item.id,
 					imageUrl:item.image,
-					stock: item.rating.count,
+					stock: item.stock,
 					name: item.title,
 					price: item.price,
 					description: item.description,
@@ -84,7 +84,7 @@ export const ItemDetail = ({ item }) => {
 					<div>	
 						<ItemCount
 							onEvent={onAdd}
-							stock={item.rating?.count}
+							stock={item.stock}
 							initial={0}
 							{...item}
 						/>

@@ -56,7 +56,7 @@ export const ItemCount = ({stock, initial, onEvent }) => {
         Agregar Al carrito
       </button>
     </div>
-  );
-};
+  )
+}
  
-export default ItemCount;
+export default ItemCount

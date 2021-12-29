@@ -25,13 +25,18 @@ export const NavBar = () => {
 								</NavLink >
 							</li>
 							<li className="nav-item">
-								<NavLink className="nav-link"  to="/category/men-clothing"	>
-									Categoria1
+								<NavLink className="nav-link"  to="/category/masculina"	>
+									Masculina
 								</NavLink>
 									</li>
 							<li className="nav-item">
-									<NavLink	className="nav-link"  to="/category/women-clothing"	>
-									Categoria2
+									<NavLink	className="nav-link"  to="/category/femenina"	>
+									Femenina
+								</NavLink>
+							</li>
+							<li className="nav-item">
+								<NavLink className="nav-link" to="/category/unisex"	>
+									Unisex
 								</NavLink>
 							</li>
 					
