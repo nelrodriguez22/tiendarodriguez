@@ -17,7 +17,7 @@ export const ItemDetailContainer = () => {
 
   return (
     <>
-      <div className="mt-5 container mb-3">
+		  <div className="text-slate-500">
           <ItemDetail item={item} />
       </div>
     </>

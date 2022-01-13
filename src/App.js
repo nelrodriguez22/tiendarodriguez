@@ -1,34 +1,18 @@
-import { useState, useReducer, useEffect } from 'react'
+import { useReducer } from 'react'
 import { NavBar } from "./components/NavBar"
 import { BrowserRouter } from "react-router-dom"
 import Home from "./components/Home"
 import { CartContext } from "./cartcontext/CartContext"
 import { cartReducer, initialState } from './cartcontext/cartReducer'
-import {
-	collection,
-	query,
-	onSnapshot
-} from "firebase/firestore"
-import db from "./firebase/firebaseConfig"
+import { ToastContainer } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
+
 
 
 
 
 function App() {
 	const [ cartState, dispatch ] = useReducer(cartReducer, initialState)
-	const [ products, setProducts ] = useState([])
-
-	useEffect(() => {
-		const q = query(collection(db, "productos"))
-		const unsub = onSnapshot(q, (querySnapshot) => {
-			let productsArray = []
-			querySnapshot.forEach((doc) => {
-				productsArray.push({ ...doc.data(), id: doc.id })
-			})
-			setProducts(productsArray)
-		})
-		return () => unsub()
-	}, [])
 
 	return (
 		<>
@@ -40,6 +24,7 @@ function App() {
 				}}>
 					<NavBar />
 					<Home />
+					<ToastContainer />
 				</CartContext.Provider>
 			</BrowserRouter>
 

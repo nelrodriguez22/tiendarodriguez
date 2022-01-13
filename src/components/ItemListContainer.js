@@ -45,8 +45,9 @@ export const ItemListContainer = () => {
   }, [id])
 
   return (
-    <div className="container mt-4">
-        <ItemList items={items} />
-    </div>
+	  <div className="mt-1 text-slate-500 ">
+		  <ItemList items={items} />
+	  </div>
+    
   )
 }

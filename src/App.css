@@ -1,14 +1,18 @@
-img{
-	width: 45%;
+.cartwidget {
+    width: 35%;
 }
 
-
-.ct{
-	text-decoration: none;
-	margin:0 auto;
-
+.ct {
+    text-decoration: none;
+    margin: 0 auto;
 }
-.ci{
-	width: 2.5%;
-	height: 2.5%;
+
+.ci {
+    width: 2.5%;
+    height: 2.5%;
+}
+
+.logohoodie {
+    background-image: url("assets/logoHoodie.svg");
+    background-repeat: no-repeat, repeat;
 }
