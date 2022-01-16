@@ -23,7 +23,9 @@ export const cartReducer = (state = initialState, action) => {
 		case types.clear:
 			return {
 				...state,
-				productos: []
+				productos: [],
+				totalprod: 0,
+				totalprice: 0
 			}
 			
 		case types.isInCart:

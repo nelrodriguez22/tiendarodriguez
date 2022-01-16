@@ -3,6 +3,8 @@ import { ItemDetailContainer } from "./ItemDetailContainer";
 import { Route, Routes } from "react-router-dom";
 import { Cart } from "./Cart";
 
+
+
 const Home = () => {
 	return ( 
 		<>

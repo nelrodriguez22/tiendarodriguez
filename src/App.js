@@ -6,6 +6,7 @@ import { CartContext } from "./cartcontext/CartContext"
 import { cartReducer, initialState } from './cartcontext/cartReducer'
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { ModalProvider } from 'styled-react-modal'
 
 
 
@@ -18,6 +19,7 @@ function App() {
 		<>
 
 			<BrowserRouter>
+				<ModalProvider>
 				<CartContext.Provider value={{
 					cartState,
 					dispatch
@@ -26,6 +28,7 @@ function App() {
 					<Home />
 					<ToastContainer />
 				</CartContext.Provider>
+				</ModalProvider>
 			</BrowserRouter>
 
 		</>

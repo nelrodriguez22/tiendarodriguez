@@ -1,5 +1,5 @@
 import db from "../firebase/firebaseConfig";
-import { collection, getDocs, doc, getDoc } from "firebase/firestore"
+import { collection, getDocs, getDoc, doc, addDoc, updateDoc } from "firebase/firestore"
 
 const productos = collection(db, "productos")
 
@@ -49,3 +49,8 @@ export const unisex = async () => {
 }
 
 
+export const addBuy = async (buyOrder) => {
+	const orders = collection(db, "orders")
+	const buyOrderRef = await addDoc(orders, buyOrder)
+	return buyOrderRef.id
+}

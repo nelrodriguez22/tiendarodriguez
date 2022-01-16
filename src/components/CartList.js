@@ -4,14 +4,13 @@ import {CartContext} from "../cartcontext/CartContext"
 import { types } from "../types/types"
 import { NavLink } from "react-router-dom"
 
-
 import '../App.css'
 
 const CartList = ({...producto}) => {
 const {  dispatch } = useContext(CartContext)
 
 
-  const handleRemove = (id) => {
+const handleRemove = (id) => {
 		dispatch({
 			type: types.rmvprod,
 			payload: id
