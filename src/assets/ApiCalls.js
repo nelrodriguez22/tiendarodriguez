@@ -21,6 +21,14 @@ export const getItem = async (id) => {
 	return productoRef.data()
 }
 
+export const getOrder = async (id) => {
+  const order = doc(db, "orders", id);
+
+  const orderRef = await getDoc(order);
+
+  return orderRef.data();
+};
+
 export const men = async () => {
 	const data = await getDocs(productos)
 	const arr = []
