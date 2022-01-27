@@ -1,7 +1,10 @@
-import db from "../firebase/firebaseConfig";
-import { collection, getDocs, getDoc, doc, addDoc, updateDoc } from "firebase/firestore"
+import db from "../firebase/firebaseConfig"
+import { collection, getDocs, getDoc, doc, addDoc } from "firebase/firestore"
+
+
 
 const productos = collection(db, "productos")
+
 
 
 export const getItems = async () => {
@@ -22,12 +25,12 @@ export const getItem = async (id) => {
 }
 
 export const getOrder = async (id) => {
-  const order = doc(db, "orders", id);
+  const order = doc(db, "orders", id)
 
-  const orderRef = await getDoc(order);
+  const orderRef = await getDoc(order)
 
-  return orderRef.data();
-};
+  return orderRef.data()
+}
 
 export const men = async () => {
 	const data = await getDocs(productos)

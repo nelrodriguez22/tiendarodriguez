@@ -1,5 +1,5 @@
 import { useReducer } from 'react'
-import { NavBar } from "./components/NavBar"
+import  NavBar  from "./components/NavBar"
 import { BrowserRouter } from "react-router-dom"
 import Home from "./components/Home"
 import { CartContext } from "./cartcontext/CartContext"
@@ -7,9 +7,7 @@ import { cartReducer, initialState } from './cartcontext/cartReducer'
 import { ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 import { ModalProvider } from 'styled-react-modal'
-
-
-
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css"
 
 
 function App() {
@@ -17,7 +15,6 @@ function App() {
 
 	return (
 		<>
-
 			<BrowserRouter>
 				<ModalProvider>
 				<CartContext.Provider value={{
@@ -30,7 +27,6 @@ function App() {
 				</CartContext.Provider>
 				</ModalProvider>
 			</BrowserRouter>
-
 		</>
 	)
 }

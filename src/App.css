@@ -16,3 +16,7 @@
     background-image: url("assets/logoHoodie.svg");
     background-repeat: no-repeat, repeat;
 }
+
+.center-spinner {
+    margin: 0 auto;
+}

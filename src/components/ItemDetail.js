@@ -1,18 +1,15 @@
 import React, { useState, useContext } from "react"
 import { useNavigate } from "react-router-dom"
-import { ItemCount } from "./ItemCount"
+import ItemCount from "./ItemCount"
 import { Link } from "react-router-dom"
 import { types } from "../types/types"
 import { CartContext } from "../cartcontext/CartContext"
 
-
-
-export const ItemDetail = ({ item }) => {
+const ItemDetail = ({ item }) => {
 	const navigate = useNavigate()
 	const [ product, setProduct ] = useState(0)
 	const { cartState, dispatch } = useContext(CartContext)
 	const [ itemCount, setItemCount ] = useState(0)
-
 	const isInCart = (id, counter) => {
 		const product = cartState.productos.find(product => product.id === id)
 		if (product) {
@@ -58,16 +55,11 @@ export const ItemDetail = ({ item }) => {
 			})
 		}
 	}
-
 	const onAdd = (counter) => {
 		setProduct(product + counter)
 		isInCart(item.id, counter)
 		setItemCount(counter)
-
 	}
-	//TODO agregar el feedback al usuario de todas las acciones(swal o toasty)
-
-
 	return (
 		<div className="flex flex-col items-center min-h-screen	 ">
 			<div className="self-start	ml-10">
@@ -92,18 +84,16 @@ export const ItemDetail = ({ item }) => {
 					Regresar
 				</button>
 			</div>
-
 			<div className=" flex items-center md:w-1/2 w-full h-full">
 				<img className=" mr-5 w-1/3 " src={item.image} alt="..." />
 				<div className=" w-2/3">
 					<h5 className="mb-3 text-md font-light tracking-tight">
 						<span className="bg-gray-200 rounded p-1">#{item.id}</span>
 						<span className="font-medium text-2xl "> {item.title}</span>
-
 					</h5>
 					<p className="font-bold mb-2 text-xl">
-					<span className="text-md">Precio:</span>
-					${item.price}
+						<span className="text-md">Precio:</span>
+						${item.price}
 					</p>
 					<p className="block text-sm mt-1 font-light">
 						<span className="">Categoria:</span>
@@ -152,5 +142,6 @@ export const ItemDetail = ({ item }) => {
 				</div>
 			</div>
 		</div>
-	);
+	)
 }
+export default ItemDetail

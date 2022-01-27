@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 import '../App.css'
 
-export const Item = ({ item }) => {
+const Item = ({ item }) => {
 	return (
 		<>
 			<div className="mt-10 ml-10 mr-10 bg-white rounded-lg  border border-pink-100 shadow-sm shadow-pink-100 overflow-hidden flex justify-items-center hover:shadow-none transition-all delay-200">
@@ -18,11 +18,7 @@ export const Item = ({ item }) => {
 					</NavLink>
 				</div>
 			</div>
-
-
-
 		</>
 	)
 }
-
 export default Item

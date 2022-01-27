@@ -3,14 +3,10 @@ import { CartContext } from "../cartcontext/CartContext"
 import { Link } from "react-router-dom"
 import './cartwidget.css'
 
-
-export const  CartWidget = () => {
+const  CartWidget = () => {
 	const { cartState } = useContext(CartContext) 
 	const totalProd = cartState.totalprod
-	
-
 	return (
-		
 		<Link to="/cart">
 			<div className="flex items-center hover:text-pink-500 transition-all delay-200">
 				<svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
@@ -19,6 +15,6 @@ export const  CartWidget = () => {
 				<span className="text-white bg-red-500  px-2  rounded-full text-sm font-semibold ">{totalProd}</span> 
 			</div>
 		</Link>
-		
 	)
 }
+export default CartWidget
